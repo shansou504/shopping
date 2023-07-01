@@ -1,0 +1,44 @@
+body {
+    background-color: #111111;
+    color: white;
+}
+
+input[type=text] {
+	border-radius: 4px;
+	background-color: #333333;
+	color: white;
+}
+
+input[type=date] {
+	border-radius: 4px;
+	background-color: #333333;
+	color: cornflowerblue;
+}
+
+input[type=number] {
+	border-radius: 4px;
+	background-color: #333333;
+	color: white;
+}
+
+input[type=checkbox] {
+	border-radius: 4px;
+	background-color: #333333;
+	color: cornflowerblue;
+}
+
+select {
+	background-color: #333333;
+	color: cornflowerblue;
+}
+
+button {
+	background-color: #333333;
+	color: white;
+	border-radius: 8px;
+}
+
+textarea {
+	background-color: #333333;
+	color: white;
+}
