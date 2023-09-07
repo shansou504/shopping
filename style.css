@@ -1,44 +1,47 @@
+html {
+	background-color: #888888;
+}
 body {
-    background-color: #111111;
-    color: white;
+	font-size: 3em;
+}
+p {
+	font-size: 1em;
+}
+.flexcol{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.flexrow{
+	display: flex;
+	flex-direction: row;
+}
+table {
+	font-size: 1em;
+	border-collapse: collapse;
 }
 
+tr:nth-child(even) {
+	background-color: #777777;
+}
+label {
+	font-size: 1em;
+}
+select, input[type=date] {
+	font-size: 1em;
+	color: #007BFF;
+}
 input[type=text] {
-	border-radius: 4px;
-	background-color: #333333;
-	color: white;
+	font-size: 1em;
 }
-
-input[type=date] {
-	border-radius: 4px;
-	background-color: #333333;
-	color: cornflowerblue;
-}
-
 input[type=number] {
-	border-radius: 4px;
-	background-color: #333333;
-	color: white;
+	font-size: 1em;
+	text-align: right;
 }
-
 input[type=checkbox] {
-	border-radius: 4px;
-	background-color: #333333;
-	color: cornflowerblue;
+	height: 3em;
+	width: 3em;
 }
-
-select {
-	background-color: #333333;
-	color: cornflowerblue;
-}
-
-button {
-	background-color: #333333;
-	color: white;
-	border-radius: 8px;
-}
-
-textarea {
-	background-color: #333333;
-	color: white;
+textarea, button {
+	font-size: 1em;
 }
