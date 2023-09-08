@@ -4,6 +4,7 @@ $monthid=$_POST['monthid'];
 $sqlrpt=mysqli_query($mysqli,"SELECT b.cat, r.tot, b.amount FROM (SELECT cat cat, SUM(total) tot FROM rec WHERE MONTH(dat) = $monthid GROUP BY cat) r RIGHT JOIN budget b ON r.cat = b.cat ORDER BY b.cat");
 $sqlrec=mysqli_query($mysqli, "SELECT SUM(total) s FROM rec WHERE MONTH(dat) = $monthid"); 
 $sqlbud=mysqli_query($mysqli, "SELECT SUM(amount) s FROM budget"); 
+$sqlcat=mysqli_query($mysqli, "SELECT * FROM category ORDER BY category");
 ?>
 <html>
 	<head>
@@ -36,6 +37,21 @@ $sqlbud=mysqli_query($mysqli, "SELECT SUM(amount) s FROM budget");
 				?>
 			</table>
 			<br>
+			<form action="catreport.php" method="post">
+				<div class="flexcol">
+					<input id="monthid" name="monthid" value="<?php echo $monthid; ?>" type="hidden">
+					<input id="monthnameid" name="monthname" value="<?php echo $month_name; ?>" type="hidden">
+					<select name="cat">
+						<?php
+							while($rowcat=mysqli_fetch_assoc($sqlcat)) {
+								echo "<option value='" . $rowcat['category'] . "'>" . $rowcat['category'] . "</option>";
+							}
+						?>
+					</select>
+					<br>
+					<button>Submit</button>
+				</div>
+			</form>
 			<a href="index.php"><button style="width: 100%;">Home</button></a>
 		</div>
 	</body>
