@@ -14,7 +14,7 @@ if($edit) {
 		while($defcat=mysqli_fetch_assoc($sqldefcat)) {
 			$def=$defcat['category'];
 		}
-		$sqlins=mysqli_query($mysqli, "INSERT INTO rec (id, dat, store, items, note, cat, total, closed) VALUES (NULL, NOW(), '$store', NULL, NULL, '$def', 0, 0)");
+		$sqlins=mysqli_query($mysqli, "INSERT INTO rec (id, dat, store, items, note, cat, total, closed) VALUES (NULL, NOW(), '$store', NULL, NULL, '$def', NULL, 0)");
 		echo "<html>";
 		echo "<head>";
 		echo "<link rel='stylesheet' type='text/css' href='style.css?ver=1.1'>";
