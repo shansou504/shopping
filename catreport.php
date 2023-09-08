@@ -3,7 +3,7 @@ include("connection.php");
 $monthid=$_POST['monthid'];
 $month_name=$_POST['monthname'];
 $cat=$_POST['cat'];
-$sqlcatrpt=mysqli_query($mysqli,"SELECT * FROM rec WHERE MONTH(dat) = $monthid AND cat = '$cat' ORDER BY dat");
+$sqlcatrpt=mysqli_query($mysqli,"SELECT * FROM rec WHERE MONTH(dat) = $monthid AND cat = '$cat' ORDER BY store, dat");
 ?>
 <html>
 	<head>
