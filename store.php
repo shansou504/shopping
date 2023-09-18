@@ -5,16 +5,29 @@ $edit=$_POST['edit'];
 $search=$_POST['search'];
 $closed=1;
 if($edit) {
-	$sqlclosed=mysqli_query($mysqli, "SELECT closed FROM rec WHERE store = '$store' ORDER BY id DESC LIMIT 1");
+	$sqlclosed=mysqli_query($mysqli, "
+		SELECT closed 
+		FROM rec 
+		WHERE store = '$store' 
+		ORDER BY id DESC LIMIT 1
+	");
 	while($close=mysqli_fetch_assoc($sqlclosed)) {
 		$closed=$close['closed'];
 	}
 	if($closed) {
-		$sqldefcat=mysqli_query($mysqli, "SELECT * FROM store WHERE store = '$store' ORDER BY id DESC LIMIT 1");
+		$sqldefcat=mysqli_query($mysqli, "
+			SELECT * 
+			FROM store 
+			WHERE store = '$store' 
+			ORDER BY id DESC LIMIT 1
+		");
 		while($defcat=mysqli_fetch_assoc($sqldefcat)) {
 			$def=$defcat['category'];
 		}
-		$sqlins=mysqli_query($mysqli, "INSERT INTO rec (id, dat, store, items, note, cat, total, closed) VALUES (NULL, NOW(), '$store', NULL, NULL, '$def', NULL, 0)");
+		$sqlins=mysqli_query($mysqli, "
+			INSERT INTO rec (dat, store, items, note, cat, total, closed) 
+			VALUES (NOW(), '$store', NULL, NULL, '$def', 0, 0)
+		");
 		echo "<html>";
 		echo "<head>";
 		echo "<link rel='stylesheet' type='text/css' href='style.css?ver=1.1'>";
@@ -35,16 +48,25 @@ if($edit) {
 		echo "</body>";
 		echo "</html>";
 	} else {
-		$sqlcat=mysqli_query($mysqli, "SELECT * FROM category ORDER BY category");
+		$sqlcat=mysqli_query($mysqli, "
+			SELECT * 
+			FROM category 
+			ORDER BY category
+		");
 		echo "<html>";
 		echo "<head>";
-		echo "<link rel='stylesheet' type='text/css' href='style.css?ver=1.4'>";
+		echo "<link rel='stylesheet' type='text/css' href='style.css?ver=1.1'>";
 		echo "</head>";
 		echo "<body>";
 		echo "<label for='formid'>$store</label>";
 		echo "<form id='formid' name='form' action='update.php' method='post'>";
 		echo "<div id='divid' class='flexcol'>";
-		$sqlrec=mysqli_query($mysqli, "SELECT * FROM rec WHERE store = '$store' ORDER BY id DESC LIMIT 1");
+		$sqlrec=mysqli_query($mysqli, "
+			SELECT * 
+			FROM rec 
+			WHERE store = '$store' 
+			ORDER BY id DESC LIMIT 1
+		");
 		while($row=mysqli_fetch_assoc($sqlrec)) {
 			echo "<input id='id' name='id' type='hidden' value='" . $row['id'] . "'/>";
 			echo "<input id='datid' name='dat' type='date' value='" . $row['dat'] . "'/>";
@@ -62,9 +84,9 @@ if($edit) {
 			echo "</select>";
 			echo "<label for='totalid'>Total</label>";
 			echo "<input id='totalid' name='total' type='number' step='0.01' value='" . $row['total'] . "'/>";
-			echo "<label><br>Closed&ensp;<input id='closedid' name='closed' type='checkbox' unchecked value='1'/><br><br></label>";
-			echo "<button id='buttonid' name='button'>Update</button>";
 		}
+		echo "<label><br>Closed&ensp;<input id='closedid' name='closed' type='checkbox' unchecked value='1'/><br><br></label>";
+		echo "<button id='buttonid' name='button'>Update</button>";
 		echo "</div>";
 		echo "</form>";
 		echo "<a href='index.php'><button style='width: 100%'>Home</button></a>";
@@ -75,7 +97,7 @@ if($edit) {
 	?>
 		<html>
 			<head>
-				<link rel="stylesheet" type="text/css" href="style.css">
+				<link rel='stylesheet' type='text/css' href='style.css?ver=1.1'>
 			</head>
 			<body onload="func()">
 				<form action="search.php" method="post">

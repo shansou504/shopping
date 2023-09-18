@@ -7,15 +7,6 @@ body {
 p {
 	font-size: 1em;
 }
-.flexcol{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-.flexrow{
-	display: flex;
-	flex-direction: row;
-}
 table {
 	font-size: 1em;
 	border-collapse: collapse;
@@ -45,3 +36,13 @@ input[type=checkbox] {
 textarea, button {
 	font-size: 1em;
 }
+.flexcol{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.flexrow{
+	display: flex;
+	flex-direction: row;
+}
+

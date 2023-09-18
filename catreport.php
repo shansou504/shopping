@@ -26,7 +26,15 @@ $sqlcatrpt=mysqli_query($mysqli,"SELECT * FROM rec WHERE MONTH(dat) = $monthid A
 				</tr>
 				<?php
 					while($row=mysqli_fetch_assoc($sqlcatrpt)) {
-						echo "<tr><td style='text-align: left'>" . $row['store'] . "</td><td style='text-align: left'>" . $row['dat'] . "</td><td style='text-align: left'>" . $row['items'] . "</td><td style='text-align: left'>" . $row['notes'] . "</td><td style='text-align: right'>" . $row['total'] . "</td></tr>";
+						echo "
+							<tr>
+								<td style='text-align: left'>" . $row['store'] . "</td>
+								<td style='text-align: left'>" . $row['dat'] . "</td>
+								<td style='text-align: left'>" . $row['items'] . "</td>
+								<td style='text-align: left'>" . $row['notes'] . "</td>
+								<td style='text-align: right'>" . $row['total'] . "</td>
+							</tr>
+						";
 					}
 				?>
 			</table>
