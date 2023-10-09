@@ -105,11 +105,11 @@ if($edit) {
 						<input name="store" type="hidden" value="<?php echo $store; ?>">
 						<div style="width: 50%; height: 100%; padding: 2.5%;" class="flexcol">
 							<select id="searchid" name="id" onchange="func()">
-								<option disabled hidden selected value="none">ID Date Items</option>
+								<option disabled hidden selected value="none">ID Date Items Total</option>
 								<?php
 									$sql=mysqli_query($mysqli, "SELECT * FROM rec WHERE store = '$store' ORDER BY dat DESC");
 									while($row=mysqli_fetch_assoc($sql)) {
-										echo "<option value='" . $row['id'] . "'>" . $row['id'] . "&ensp;" . $row['dat'] . "&ensp;" . $row['items'] . "</option>";
+										echo "<option value='" . $row['id'] . "'>" . $row['id'] . "&ensp;" . $row['dat'] . "&ensp;" . $row['items'] . "&ensp;" . $row['total'] . "</option>";
 									}
 								?>
 							</select>
