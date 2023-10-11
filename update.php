@@ -12,7 +12,10 @@ if($_POST['closed']==1) {
 } else {
 	$closed='0';
 }
-$sqlins=mysqli_query($mysqli, "UPDATE rec SET dat='$dat', items='$items', note='$note', cat='$cat', total='$total', closed='$closed' WHERE id='$id'"); 
+if(!$total) {
+	$total='NULL';
+}
+$sqlins=mysqli_query($mysqli, "UPDATE rec SET dat='$dat', items='$items', note='$note', cat='$cat', total=$total, closed='$closed' WHERE id='$id'"); 
 ?>
 <html>
 	<head>

@@ -26,7 +26,7 @@ if($edit) {
 		}
 		$sqlins=mysqli_query($mysqli, "
 			INSERT INTO rec (dat, store, items, note, cat, total, closed) 
-			VALUES (NOW(), '$store', NULL, NULL, '$def', 0, 0)
+			VALUES (NOW(), '$store', NULL, NULL, '$def', NULL, 0)
 		");
 		echo "<html>";
 		echo "<head>";
